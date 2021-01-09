@@ -3,12 +3,18 @@ package vertx_kafka;
 import io.vertx.core.Vertx;
 import io.vertx.kafka.client.consumer.KafkaConsumer;
 import io.vertx.kafka.client.producer.KafkaProducer;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import vertx_kafka.handler.IKafkaHandler;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,12 +26,14 @@ import java.util.Map;
  */
 @Configuration
 @ConditionalOnProperty(value = "kafka.client.enable",matchIfMissing = true)
-public class KafkaClientConfiguration implements BeanPostProcessor {
+public class KafkaClientConfiguration implements BeanPostProcessor, ApplicationContextAware {
 
     private static final Vertx vertx = Vertx.vertx();
 
+    private ApplicationContext context;
+
     @Bean
-    public KafkaConsumer kafkaConsumer(){
+    public List<KafkaConsumer> kafkaConsumers(){
         Map<String, String> config = new HashMap<>();
         config.put("bootstrap.servers", "localhost:9092");
         config.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
@@ -35,8 +43,16 @@ public class KafkaClientConfiguration implements BeanPostProcessor {
         config.put("enable.auto.commit", "false");
 
 // use consumer for interacting with Apache Kafka
-        KafkaConsumer<String, String> consumer = KafkaConsumer.create(vertx, config);
-        return consumer;
+        List<KafkaConsumer> kafkaConsumers = new ArrayList<>();
+        Map<String, IKafkaHandler> consumerHandlers = this.context.getBeansOfType(IKafkaHandler.class);
+        for(String kafkaHandlerBean : consumerHandlers.keySet()){
+            KafkaConsumer<String, String> consumer = KafkaConsumer.create(vertx, config);
+            IKafkaHandler handler = consumerHandlers.get(kafkaHandlerBean);
+            consumer.handler(message->handler.handle(message));
+            consumer.subscribe(handler.topic());
+            kafkaConsumers.add(consumer);
+        }
+        return kafkaConsumers;
     }
 
     @Bean
@@ -50,5 +66,10 @@ public class KafkaClientConfiguration implements BeanPostProcessor {
 // use producer for interacting with Apache Kafka
         KafkaProducer<String, String> producer = KafkaProducer.create(vertx, config);
         return producer;
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.context = applicationContext;
     }
 }
