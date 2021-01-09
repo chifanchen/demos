@@ -1,4 +1,4 @@
-# intergrate springboot with-vertx-kafka-client
+# intergrate springboot with vertx-kafka-client
 
 #### 为什么尝试做这个集成
 
