@@ -3,20 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6b38e6b4-21c5-46d6-a221-4a9ad3a47b7a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vertx_kafka/KafkaClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vertx_kafka/KafkaClientConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vertx_kafka/annotation/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vertx_kafka/annotation/MessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vertx_kafka/common/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vertx_kafka/common/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vertx_kafka/handler/IKafkaHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vertx_kafka/handler/IKafkaHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vertx_kafka/handler/impl/Topic1Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vertx_kafka/handler/impl/Topic1Handler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vertx_kafka/handler/impl/Topic2Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vertx_kafka/handler/impl/Topic2Handler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vertx_kafka/KafkaClientConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vertx_kafka/KafkaClientConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vertx_kafka/annotation/MessageHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vertx_kafka/annotation/MessageHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vertx_kafka/common/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vertx_kafka/common/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vertx_kafka/handler/IKafkaHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vertx_kafka/handler/IKafkaHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vertx_kafka/handler/impl/Topic1Handler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vertx_kafka/handler/impl/Topic1Handler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vertx_kafka/handler/impl/Topic2Handler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/vertx_kafka/handler/impl/Topic2Handler.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,6 +25,18 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="72">
+                <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -80,15 +78,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/io/vertx/vertx-kafka-client/4.0.0/vertx-kafka-client-4.0.0-sources.jar!/io/vertx/kafka/client/consumer/KafkaConsumer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="75" column="36" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/vertx_kafka/annotation/MessageHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="18">
@@ -109,7 +98,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/vertx_kafka/handler/impl/Topic1Handler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
@@ -374,7 +363,7 @@
       <workItem from="1610113300126" duration="2603000" />
       <workItem from="1610169687760" duration="15674000" />
       <workItem from="1610200467470" duration="3518000" />
-      <workItem from="1610246162168" duration="5720000" />
+      <workItem from="1610246162168" duration="6574000" />
     </task>
     <task id="LOCAL-00001" summary="外部通过实现IKafkaHandler接口，该接口两个方法，一个是topic，一个是handler">
       <created>1610198297222</created>
@@ -411,14 +400,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610202593523</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="use annotation to acquire messageType and topic and so on">
+      <created>1610252141284</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610252141284</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27515000" />
+    <option name="totallyTimeSpent" value="28369000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24583964" />
@@ -497,7 +493,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="外部通过实现IKafkaHandler接口，该接口两个方法，一个是topic，一个是handler" />
     <MESSAGE value="modify README" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify README" />
+    <MESSAGE value="use annotation to acquire messageType and topic and so on" />
+    <option name="LAST_COMMIT_MESSAGE" value="use annotation to acquire messageType and topic and so on" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -651,16 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SECOND">
-          <first_editor relative-caret-position="284">
-            <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/vertx_kafka/controller/ProduceController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -768,6 +755,16 @@
             <element signature="e#755#756#0" expanded="true" />
             <element signature="e#808#809#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="72">
+            <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
