@@ -16,7 +16,7 @@ import vertx_kafka.handler.IKafkaHandler;
  * @modified By:
  */
 @Component
-public class Topic1Handler implements IKafkaHandler<Message> {
+public class Topic1G2Handler implements IKafkaHandler<Message> {
 
     private static final Logger logger = LoggerFactory.getLogger(Topic1Handler.class);
 
@@ -27,6 +27,6 @@ public class Topic1Handler implements IKafkaHandler<Message> {
     @MessageHandler(topic = "topic1",msgType = Message.class,consumerGroup = "group1")
     @Override
     public void handle(Message message) {
-        logger.info("topic1-group1 handler {} 收到消息:{}",Topic1Handler.class,message);
+        logger.info("topic1-group1 handler {} 收到消息:{}",Topic1G2Handler.class,message);
     }
 }

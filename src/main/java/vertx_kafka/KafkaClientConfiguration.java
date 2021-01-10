@@ -7,6 +7,7 @@ import io.vertx.kafka.client.consumer.KafkaConsumer;
 import io.vertx.kafka.client.consumer.KafkaConsumerRecord;
 import io.vertx.kafka.client.producer.KafkaProducer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.logging.log4j.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -44,14 +45,6 @@ public class KafkaClientConfiguration implements BeanPostProcessor, ApplicationC
 
     @Bean
     public List<KafkaConsumer> kafkaConsumers(){
-        Map<String, String> config = new HashMap<>();
-        config.put("bootstrap.servers", "localhost:9092");
-        config.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        config.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        config.put("group.id", "my_group");
-        config.put("auto.offset.reset", "earliest");
-        config.put("enable.auto.commit", "false");
-
 // use consumer for interacting with Apache Kafka
         List<KafkaConsumer> kafkaConsumers = new ArrayList<>();
         Map<String, IKafkaHandler> consumerHandlers = this.context.getBeansOfType(IKafkaHandler.class);
@@ -65,7 +58,17 @@ public class KafkaClientConfiguration implements BeanPostProcessor, ApplicationC
                 Class clazz = handler.getClass();
                 Method handleMethod = clazz.getDeclaredMethod("handle",Object.class);
                 MessageHandler anno = handleMethod.getAnnotation(MessageHandler.class);
+                String consumerGroup = anno.consumerGroup();
                 Class msgType = anno.msgType();
+                Map<String, String> config = new HashMap<>();
+                config.put("bootstrap.servers", "localhost:9092");
+                config.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+                config.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+                if(Strings.isNotBlank(consumerGroup)) {
+                    config.put("group.id", consumerGroup);
+                }
+                config.put("auto.offset.reset", "earliest");
+                config.put("enable.auto.commit", "false");
                 KafkaConsumer<String,String> consumer = KafkaConsumer.create(vertx, config);
 
                 String topic = anno.topic();

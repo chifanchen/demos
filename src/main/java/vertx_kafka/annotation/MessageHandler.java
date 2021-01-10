@@ -39,4 +39,10 @@ public @interface MessageHandler {
      * @return
      */
     Class msgType() default String.class;
+
+    /**
+     * consumer group
+     * @return
+     */
+    String consumerGroup() default "";
 }
