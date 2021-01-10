@@ -20,6 +20,13 @@
             <artifactId>lombok</artifactId>
             <version>1.16.18</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.73</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/io.vertx/vertx-kafka-client -->
         <dependency>
             <groupId>io.vertx</groupId>

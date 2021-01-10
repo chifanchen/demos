@@ -1,5 +1,7 @@
 package vertx_kafka.handler;
 
+import vertx_kafka.annotation.MessageHandler;
+
 /**
  * @description:
  * @author: 范晨
@@ -14,6 +16,4 @@ public interface IKafkaHandler<T> {
      * @param message
      */
     void handle(T message);
-
-    String topic();
 }

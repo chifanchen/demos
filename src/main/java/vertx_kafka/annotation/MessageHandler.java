@@ -12,7 +12,7 @@ import java.lang.annotation.*;
  * @version:
  * @modified By:
  */
-@Target({ElementType.TYPE})
+@Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Component

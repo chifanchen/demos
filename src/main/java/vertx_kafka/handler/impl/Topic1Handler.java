@@ -1,9 +1,11 @@
 package vertx_kafka.handler.impl;
 
+import io.vertx.kafka.client.consumer.KafkaConsumerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import vertx_kafka.annotation.MessageHandler;
+import vertx_kafka.common.Message;
 import vertx_kafka.handler.IKafkaHandler;
 
 /**
@@ -14,17 +16,17 @@ import vertx_kafka.handler.IKafkaHandler;
  * @modified By:
  */
 @Component
-public class Topic1Handler<String> implements IKafkaHandler<String> {
+public class Topic1Handler implements IKafkaHandler<Message> {
 
     private static final Logger logger = LoggerFactory.getLogger(Topic1Handler.class);
 
+    /**
+     * msgType 需要和 handle里的参数类型相同
+     * @param message
+     */
+    @MessageHandler(topic = "topic1",msgType = Message.class)
     @Override
-    public void handle(String message) {
-        logger.info("topic1 消息来了,message = {}",message);
-    }
-
-    @Override
-    public java.lang.String topic() {
-        return "topic1";
+    public void handle(Message message) {
+        logger.info("topic1 收到消息:{}",message);
     }
 }

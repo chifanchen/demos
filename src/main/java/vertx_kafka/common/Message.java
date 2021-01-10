@@ -10,8 +10,8 @@ import lombok.Data;
  * @modified By:
  */
 @Data
-public class Message<T> {
+public class Message {
 
     private String messageId;
-    private T data;
+    private String data;
 }
